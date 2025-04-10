@@ -39,7 +39,7 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > ~/.kube/config
 
       - name: Apply Kubernetes Deployment
-        run: kubectl apply -f demo-api.yaml --insecure-skip-tls-verify=true  --validate=false
+        run: kubectl apply -f demo-api.yaml --validate=false
 
       - name: Force Rollout to Pull Latest Image
-        run: kubectl rollout restart deployment demo-api --insecure-skip-tls-verify=true
+        run: kubectl rollout restart deployment demo-api
