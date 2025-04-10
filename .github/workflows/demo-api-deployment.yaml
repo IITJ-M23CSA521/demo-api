@@ -36,7 +36,7 @@ jobs:
       - name: Set up Kubeconfig
         run: |
           mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > ~/.kube/config
+          echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > ~/.kube/config
 
       - name: Apply Kubernetes Deployment
         run: kubectl apply -f demo-api.yaml --validate=false
